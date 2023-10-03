@@ -1,0 +1,15 @@
+name: Concurrency Test - job level
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        required: true
+jobs:
+  build:
+    runs-on: [self-hosted]
+    concurrency:
+      group: ${{ github.workflow }}-${{ inputs.pr_number }}
+      cancel-in-progress: true
+    steps:
+      - run: echo ${{ github.workflow }}-${{ inputs.pr_number }}
+      - run: sleep 30

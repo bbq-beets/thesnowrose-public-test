@@ -7,7 +7,7 @@ on:
         required: true
     
 concurrency:
-  group: ${{ github.workflow }}-${{ inputs.pr_number }}
+  group: ${{ inputs.pr_number }}
   cancel-in-progress: true
 jobs:
   build:

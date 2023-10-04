@@ -1,0 +1,16 @@
+name: Concurrency Test-null
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        required: true
+    
+concurrency:
+  group: ${{ inputs.pr_number }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ github.workflow }}-${{ inputs.pr_number }}

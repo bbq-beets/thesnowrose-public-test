@@ -2,16 +2,12 @@ name: Concurrency Test
 
 on:
   workflow_dispatch:
-    inputs:
-      pr_number:
-        required: true
     
 concurrency:
-  group: '${{ inputs.pr_number }}'
+  group: ${{ github.workflow_ref }}
   cancel-in-progress: true
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.workflow }}-${{ inputs.pr_number }}
-      - run: sleep 30
+      - run: echo ${{ github.workflow_ref }}

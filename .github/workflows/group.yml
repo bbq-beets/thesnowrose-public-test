@@ -14,7 +14,7 @@ jobs:
     concurrency: patch-mirror-${{ github.ref_name }}
     runs-on: ubuntu-latest
     steps:
-    - run: echo hi
+    - run: echo patch-mirror-${{ github.ref_name }}
     # uses: grafana/security-patch-actions/.github/workflows/mirror-branch-and-apply-patches.yml@main
     # if: github.repository == 'grafana/grafana'
     # with:

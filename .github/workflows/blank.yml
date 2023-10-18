@@ -2,15 +2,12 @@ name: Concurrency Test
 
 on:
   workflow_dispatch:
-    inputs:
-      pr_number: 
-        required: true
     
 concurrency:
-  group: ${{ inputs.pr_number }}
+  group: '${{ github.workflow }} @ ${{ github.event.issue.number || github.sha || github.head_ref || github.ref }}-${{ github.event.schedule || github.event.comment.body || github.event.sender.login }}'
   cancel-in-progress: true
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ inputs.pr_number }}
+      - run: echo $'${{ github.workflow }} @ ${{ github.event.issue.number || github.sha || github.head_ref || github.ref }}-${{ github.event.schedule || github.event.comment.body || github.event.sender.login }}'

@@ -1,0 +1,20 @@
+name: Typed Inputs
+run-name: Typed Inputs - ${{ inputs.environment }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: Target environment to deploy to
+        type: choice
+        options:
+          - ''
+          - production
+        required: false
+
+jobs:
+  build:
+    runs-on: [ ubuntu-latest ]
+
+    steps:
+      - run: echo "Hello ${{ inputs.environment }}"

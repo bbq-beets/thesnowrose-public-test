@@ -3,6 +3,7 @@ name: Concurrency Test
 on:
   issue_comment:
     types: [created,edited,deleted]
+  workflow_dispatch:
     
 concurrency:
   group: ${{github.workflow}}

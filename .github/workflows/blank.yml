@@ -1,7 +1,8 @@
 name: Concurrency Test
 
 on:
-  workflow_dispatch:
+  pull_request:
+    types: [opened]
     
 concurrency:
   group: ${{github.workflow}}

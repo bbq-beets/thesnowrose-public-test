@@ -17,4 +17,6 @@ jobs:
       run: echo "$GITHUB_CONTEXT"
     - name: Dump GitHub comment
       run: echo ${{github.event.comment.body}}
+    - name: Dump GitHub event
+      run: echo ${{github.event}}
       

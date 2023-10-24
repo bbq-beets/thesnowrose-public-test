@@ -1,6 +1,8 @@
 name: Concurrency Test
 
 on:
+  pull_request:
+    types: [opened,closed]
   issue_comment:
     types: [created,edited,deleted]
   workflow_dispatch:

@@ -1,8 +1,8 @@
 name: Concurrency Test
 
 on:
-  pull_request:
-    types: [opened]
+  issue_comment:
+    types: [created,edited,deleted]
     
 concurrency:
   group: ${{github.workflow}}

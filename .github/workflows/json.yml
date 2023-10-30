@@ -1,0 +1,10 @@
+name: ToJson
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "$JSON"
+        env:
+          JSON: ${{ tojson(github, github) }}

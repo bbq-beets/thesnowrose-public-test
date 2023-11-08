@@ -7,5 +7,5 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-  steps:
-    - run: echo hi
+    steps:
+      - run: echo hi
